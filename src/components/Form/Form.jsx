@@ -34,7 +34,7 @@ export default function Form() {
     e.preventDefault();
     const id = uuidv4();
     
-    contacts.find(savedContact => savedContact.name === name)
+    contacts.find(savedContact => savedContact.name.toLowerCase() === name.toLowerCase())
       ? alert(`${name} is already in contacts`)
       : dispatch(addContact({ name, number, id }));
     reset();
